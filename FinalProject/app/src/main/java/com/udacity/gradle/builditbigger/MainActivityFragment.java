@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.example.jokedisplay.JokeDisplayActivity;
+import com.example.jokeprovider.JokeClass;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
+import static com.example.jokedisplay.JokeDisplayActivity.JOKE_EXTRA;
 
 
 /**
@@ -46,7 +50,10 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void tellJoke() {
-        Toast.makeText(getActivity(), "derp", Toast.LENGTH_SHORT).show();
+        String jokeFromLibrary = JokeClass.getJoke();
+        Intent intent = new Intent(getActivity(), JokeDisplayActivity.class);
+        intent.putExtra(JOKE_EXTRA, jokeFromLibrary);
+        startActivity(intent);
     }
 
 }
