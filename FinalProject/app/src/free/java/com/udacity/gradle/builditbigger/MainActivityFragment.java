@@ -56,7 +56,7 @@ public class MainActivityFragment extends Fragment {
     }
 
     //This method retrieves a joke string from AsyncTask and open activity
-    public void getJoke() {
+    private void getJoke() {
         EndpointsAsyncTask.getInstance(new OnRetrieveJokeListener() {
             @Override
             public void onRetrieveJokeStart() {

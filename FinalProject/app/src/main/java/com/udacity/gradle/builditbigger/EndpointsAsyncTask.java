@@ -9,13 +9,13 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
+class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     private static final String TAG = EndpointsAsyncTask.class.getSimpleName();
     private static MyApi sApiService = null;
-    private OnRetrieveJokeListener mCallback;
+    private final OnRetrieveJokeListener mCallback;
 
-    public EndpointsAsyncTask(OnRetrieveJokeListener callback) {
+    private EndpointsAsyncTask(OnRetrieveJokeListener callback) {
         mCallback = callback;
     }
 
@@ -45,7 +45,7 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         }
 
         try {
-            return sApiService.sayHi().execute().getData();
+            return sApiService.getJoke().execute().getData();
         } catch (IOException e) {
             Log.d(TAG, "AsyncTaskError: " + e.getMessage());
             return null;

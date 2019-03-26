@@ -11,15 +11,14 @@ import com.google.api.server.spi.config.ApiNamespace;
         version = "v1",
         namespace = @ApiNamespace(
                 ownerDomain = "backend.builditbigger.gradle.udacity.com",
-                ownerName = "backend.builditbigger.gradle.udacity.com",
-                packagePath = ""
+                ownerName = "backend.builditbigger.gradle.udacity.com"
         )
 )
 public class MyEndpoint {
 
     /** A simple endpoint method that takes a name and says Hi back */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi() {
+    @ApiMethod(name = "getJoke")
+    public MyBean getJoke() {
         MyBean response = new MyBean();
         response.setData(JokeClass.getJoke());
 
