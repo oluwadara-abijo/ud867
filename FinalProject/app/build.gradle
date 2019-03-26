@@ -37,6 +37,20 @@ android {
         targetCompatibility = '1.8'
     }
     sourceSets { main { java.srcDirs = ['src/main/java', 'src/androidTest/java'] } }
+
+    flavorDimensions "version"
+    productFlavors {
+        free {
+            dimension "version"
+            applicationIdSuffix ".free"
+            versionNameSuffix "-free"
+        }
+        paid {
+            dimension "version"
+            applicationIdSuffix ".paid"
+            versionNameSuffix "-paid"
+        }
+    }
 }
 
 dependencies {
