@@ -36,7 +36,11 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
-    sourceSets { main { java.srcDirs = ['src/main/java', 'src/androidTest/java'] } }
+    sourceSets {
+        main { java.srcDirs = ['src/main/java', 'src/androidTest/java'] } 
+        free {java.srcDirs = ['src/free/java', 'src/free/java/']
+            manifest.srcFile 'src/free/AndroidManifest.xml'}
+    }
 
     flavorDimensions "version"
     productFlavors {
